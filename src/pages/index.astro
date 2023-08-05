@@ -1,15 +1,23 @@
 ---
+import '@/styles/index.css'
+import { container } from 'styled-system/patterns'
+import client from '@/config/supabase'
+import { LoginButton } from '@/components/LoginButton'
+
+const test = await client.from('test').select()
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Best Chessers</title>
+  </head>
+  <body class={container()}>
+    <h1>Hello World!</h1>
+    <pre>{JSON.stringify(test, null, 2)}</pre>
+    <LoginButton client:load />
+  </body>
 </html>
