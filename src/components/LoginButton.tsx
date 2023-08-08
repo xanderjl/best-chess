@@ -1,14 +1,5 @@
-import client from '@/config/supabase'
+import type { Component } from 'solid-js'
 
-const login = () =>
-  client.auth.signInWithOAuth({
-    provider: 'discord'
-  })
-
-export const LoginButton = () => {
-  return (
-    <button aria-aria-label='button' onClick={() => login()}>
-      Login
-    </button>
-  )
+export const LoginButton: Component = () => {
+  return <button aria-aria-label='button'>Login with Discord</button>
 }
