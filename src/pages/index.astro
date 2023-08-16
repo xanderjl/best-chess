@@ -1,15 +1,27 @@
 ---
 import '@/styles/index.css'
 
+import { request } from 'graphql-request'
 import { container } from 'styled-system/patterns'
 
 import { LoginButton } from '@/components/LoginButton'
+import { Game } from '@/gql'
+import type { GameQuery } from '@/gql/graphql'
 import Layout from '@/layouts/Layout.astro'
+
+const { game } = await request<GameQuery>(
+  `${Astro.url.origin}/api/graphql`,
+  Game,
+  {
+    id: 1
+  }
+)
 ---
 
 <Layout>
   <div class={container()}>
     <h1>Hello World!</h1>
     <LoginButton client:load />
+    <pre>{JSON.stringify(game, null, 2)}</pre>
   </div>
 </Layout>

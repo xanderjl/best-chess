@@ -1,0 +1,13 @@
+query Game($id: Int!) {
+  game(id: $id) {
+    outcome
+    player1 {
+      id
+      name
+    }
+    player2 {
+      id
+      name
+    }
+  }
+}
