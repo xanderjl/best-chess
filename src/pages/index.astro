@@ -6,8 +6,10 @@ import { container } from 'styled-system/patterns'
 
 import { LoginButton } from '@/components/LoginButton'
 import { Game } from '@/gql'
-import type { GameQuery } from '@/gql/graphql'
+import type { GameQuery } from '@/gql'
 import Layout from '@/layouts/Layout.astro'
+import { getSession } from 'auth-astro/server'
+import { css } from 'styled-system/css'
 
 const { game } = await request<GameQuery>(
   `${Astro.url.origin}/api/graphql`,
@@ -16,12 +18,19 @@ const { game } = await request<GameQuery>(
     id: 1
   }
 )
+
+const session = await getSession(Astro.request)
 ---
 
 <Layout>
   <div class={container()}>
-    <h1>Hello World!</h1>
-    <LoginButton client:load />
+    <h1>{session ? `Welcome, ${session.user?.name}!` : 'Hello World!'}</h1>
+    {
+      session && (
+        <img src={session.user?.image} class={css({ borderRadius: 'full' })} />
+      )
+    }
+    <LoginButton {session} client:load />
     <pre>{JSON.stringify(game, null, 2)}</pre>
   </div>
 </Layout>

@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.8.1
     version: 3.8.1(astro@2.10.9)(react@18.2.0)
   '@auth/core':
-    specifier: ^0.12.0
-    version: 0.12.0
+    specifier: ^0.5.1
+    version: 0.5.1
   '@pandacss/astro':
     specifier: ^0.11.1
     version: 0.11.1(astro@2.10.9)(typescript@5.1.6)
@@ -31,7 +31,7 @@ dependencies:
     version: 2.10.9
   auth-astro:
     specifier: ^3.0.1
-    version: 3.0.1(@auth/core@0.12.0)(astro@2.10.9)(next@13.4.16)(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.1(@auth/core@0.5.1)(astro@2.10.9)(next@13.4.16)(react-dom@18.2.0)(react@18.2.0)
   graphql:
     specifier: ^16.8.0
     version: 16.8.0
@@ -365,8 +365,8 @@ packages:
     dependencies:
       undici: 5.23.0
 
-  /@auth/core@0.12.0:
-    resolution: {integrity: sha512-XYipdAc/nKu014VOgpcPyLlj1ghWlnwyloaB1UjQd9ElZRZQ9YpSizzXGLON23t/a0FyabOBBl0/awD2tW58Rg==}
+  /@auth/core@0.5.1:
+    resolution: {integrity: sha512-t9z8F7dkuVceKWBmMy1fd2t6H+vfRju/YJ1lm+6RnJ7pNEvX5qMR874wg0+cYbWvyZazLi8fFK/FA6I3D5sSkA==}
     peerDependencies:
       nodemailer: ^6.8.0
     peerDependenciesMeta:
@@ -2709,7 +2709,7 @@ packages:
     resolution: {integrity: sha512-izNRxPoaeJeg/AyH8hER6s+H7p4itk+03QCa4sbxI3lNdseQYCuxzgsuNK8bTXChtLTjpJz6NmXKA73qLa3rCA==}
     dependencies:
       asn1js: 3.0.5
-      pvtsutils: 1.3.3
+      pvtsutils: 1.3.4
       tslib: 2.6.1
     dev: true
 
@@ -2726,7 +2726,7 @@ packages:
     dependencies:
       '@peculiar/asn1-schema': 2.3.6
       '@peculiar/json-schema': 1.1.12
-      pvtsutils: 1.3.3
+      pvtsutils: 1.3.4
       tslib: 2.6.1
       webcrypto-core: 1.7.7
     dev: true
@@ -3976,7 +3976,7 @@ packages:
     resolution: {integrity: sha512-FVnvrKJwpt9LP2lAMl8qZswRNm3T4q9CON+bxldk2iwk3FFpuwhx2FfinyitizWHsVYyaY+y5JzDR0rCMV5yTQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      pvtsutils: 1.3.3
+      pvtsutils: 1.3.4
       pvutils: 1.1.3
       tslib: 2.6.1
     dev: true
@@ -4173,14 +4173,14 @@ packages:
     resolution: {integrity: sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==}
     dev: false
 
-  /auth-astro@3.0.1(@auth/core@0.12.0)(astro@2.10.9)(next@13.4.16)(react-dom@18.2.0)(react@18.2.0):
+  /auth-astro@3.0.1(@auth/core@0.5.1)(astro@2.10.9)(next@13.4.16)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-TcS1qVlqnAjFlOulXw85eHd7CuTGUkrNZzWiJs9gbnXEv1gA6p6m0URh7MX74P5hOMxRoK3302vc6uu6aPjA8g==}
     engines: {node: '>=17.4'}
     peerDependencies:
       '@auth/core': ^0.5.1
       astro: ^2.0.0
     dependencies:
-      '@auth/core': 0.12.0
+      '@auth/core': 0.5.1
       astro: 2.10.9
       cookie: 0.5.0
       next-auth: 4.23.1(next@13.4.16)(react-dom@18.2.0)(react@18.2.0)
@@ -4391,7 +4391,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001521
-      electron-to-chromium: 1.4.492
+      electron-to-chromium: 1.4.493
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
 
@@ -4923,8 +4923,8 @@ packages:
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  /electron-to-chromium@1.4.492:
-    resolution: {integrity: sha512-36K9b/6skMVwAIEsC7GiQ8I8N3soCALVSHqWHzNDtGemAcI9Xu8hP02cywWM0A794rTHm0b0zHPeLJHtgFVamQ==}
+  /electron-to-chromium@1.4.493:
+    resolution: {integrity: sha512-T1k9mhYPdjnmS4VAz4J1oKVn6/M6LxoqQEVtYRL0swJVj73bA2NzqF0HjwxGsW3zL3ir0oPmLfd7lyi/RYzreg==}
 
   /emmet@2.4.6:
     resolution: {integrity: sha512-dJfbdY/hfeTyf/Ef7Y7ubLYzkBvPQ912wPaeVYpAxvFxkEBf/+hJu4H6vhAvFN6HlxqedlfVn2x1S44FfQ97pg==}
@@ -7769,8 +7769,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /pvtsutils@1.3.3:
-    resolution: {integrity: sha512-6sAOMlXyrJ+8tRN5IAaYfuYZRp1C2uJ0SyDynEFxL+VY8kCRib9Lpj/+KPaNFpaQWr/iRik5nrzz6iaNlxgEGA==}
+  /pvtsutils@1.3.4:
+    resolution: {integrity: sha512-Y2lmrVPui6d2U0n8lWRSTQ2Ri/0VDcA/BHAPS8/+5ElWp5drG4oPryLaqnehJT71Q2GgmGeB4mau+lSR1gCCmA==}
     dependencies:
       tslib: 2.6.1
     dev: true
@@ -8933,7 +8933,7 @@ packages:
       '@peculiar/asn1-schema': 2.3.6
       '@peculiar/json-schema': 1.1.12
       asn1js: 3.0.5
-      pvtsutils: 1.3.3
+      pvtsutils: 1.3.4
       tslib: 2.6.1
     dev: true
 
