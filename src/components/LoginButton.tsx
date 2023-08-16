@@ -7,15 +7,26 @@ interface LoginButtonProps {
   session: Session | null
 }
 
+const onClickHandler = (session: Session | null) =>
+  session ? signOut() : signIn('discord')
+
 export const LoginButton: Component<LoginButtonProps> = ({ session }) => {
-  return <button aria-label='button' class={css({
-    bg: 'purple.500',
-    color: 'white',
-    px: 4,
-    py: 2,
-    borderRadius: 'md',
-    _hover: {
-      bg: 'purple.600'
-    }
-  })} onClick={() => session ? signOut() : signIn('discord')}>{session ? 'Sign out' : 'Login with Discord'}</button>
+  return (
+    <button
+      aria-label='button'
+      class={css({
+        bg: 'purple.500',
+        color: 'white',
+        px: 4,
+        py: 2,
+        borderRadius: 'md',
+        _hover: {
+          bg: 'purple.600'
+        }
+      })}
+      onClick={() => onClickHandler(session)}
+    >
+      {session ? 'Sign out' : 'Login with Discord'}
+    </button>
+  )
 }
