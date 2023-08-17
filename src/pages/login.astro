@@ -5,6 +5,10 @@ import { getSession } from 'auth-astro/server'
 import { container } from 'styled-system/patterns'
 
 const session = await getSession(Astro.request)
+
+if (session) {
+  return Astro.redirect('/')
+}
 ---
 
 <Layout>
