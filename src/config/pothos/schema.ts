@@ -75,6 +75,17 @@ builder.queryType({
           ...query,
           where: { id }
         })
+    }),
+    userGames: t.prismaField({
+      type: ['Game'],
+      args: {
+        userId: t.arg.int({ required: true })
+      },
+      resolve: async (query, _, { userId }) =>
+        prisma.game.findMany({
+          ...query,
+          where: { OR: [{ player1Id: userId }, { player2Id: userId }] }
+        })
     })
   })
 })

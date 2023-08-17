@@ -5,8 +5,7 @@ import { getSession } from 'auth-astro/server'
 import { request } from 'graphql-request'
 import { css } from 'styled-system/css'
 import { container } from 'styled-system/patterns'
-
-import { LoginButton } from '@/components/LoginButton'
+import { SignOutButton } from '@/components/SignOutButton'
 import type { GameQuery } from '@/gql'
 import { Game } from '@/gql'
 import Layout from '@/layouts/Layout.astro'
@@ -14,23 +13,21 @@ import Layout from '@/layouts/Layout.astro'
 const { game } = await request<GameQuery>(
   `${Astro.url.origin}/api/graphql`,
   Game,
-  {
-    id: 1
-  }
+  { id: 1 }
 )
 
 const session = await getSession(Astro.request)
+
+if (!session) {
+  return Astro.redirect('/login')
+}
 ---
 
 <Layout>
   <div class={container()}>
     <h1>{session ? `Welcome, ${session.user?.name}!` : 'Hello World!'}</h1>
-    {
-      session && (
-        <img src={session.user?.image} class={css({ borderRadius: 'full' })} />
-      )
-    }
-    <LoginButton {session} client:load />
+    <img src={session.user?.image} class={css({ borderRadius: 'full' })} />
+    <SignOutButton client:load />
     <pre>{JSON.stringify(game, null, 2)}</pre>
   </div>
 </Layout>

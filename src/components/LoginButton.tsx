@@ -1,20 +1,17 @@
-import type { Session } from '@auth/core/types'
-import { signIn, signOut } from 'auth-astro/client'
-import type { Component } from 'solid-js'
+import { signIn } from 'auth-astro/client'
+import type { Component, ComponentProps } from 'solid-js'
 import { css } from 'styled-system/css'
 
-interface LoginButtonProps {
-  session: Session | null
-}
+import { Discord } from '@/components/icons'
 
-const onClickHandler = (session: Session | null) =>
-  session ? signOut() : signIn('discord')
-
-export const LoginButton: Component<LoginButtonProps> = ({ session }) => {
+export const LoginButton: Component<ComponentProps<'button'>> = props => {
   return (
     <button
       aria-label='button'
       class={css({
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
         bg: 'purple.500',
         color: 'white',
         px: 4,
@@ -24,9 +21,11 @@ export const LoginButton: Component<LoginButtonProps> = ({ session }) => {
           bg: 'purple.600'
         }
       })}
-      onClick={() => onClickHandler(session)}
+      onClick={() => signIn('discord')}
+      {...props}
     >
-      {session ? 'Sign out' : 'Login with Discord'}
+      <Discord />
+      Login with Discord
     </button>
   )
 }

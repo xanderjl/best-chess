@@ -1,0 +1,21 @@
+---
+import { LoginButton } from '@/components/LoginButton'
+import Layout from '@/layouts/Layout.astro'
+import { getSession } from 'auth-astro/server'
+import { container } from 'styled-system/patterns'
+
+const session = await getSession(Astro.request)
+---
+
+<Layout>
+  <div
+    class={container({
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minH: '100vh'
+    })}
+  >
+    <LoginButton client:load />
+  </div>
+</Layout>
