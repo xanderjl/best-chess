@@ -21,6 +21,7 @@ model User {
   updatedAt    DateTime @updatedAt
   email        String   @unique
   name         String?
+  image        String?
   wins         Int      @default(0)
   gamesPlayer1 Game[]   @relation(name: "Player1")
   gamesPlayer2 Game[]   @relation(name: "Player2")

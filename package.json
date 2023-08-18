@@ -5,14 +5,14 @@
   "scripts": {
     "prepare": "panda codegen && pnpm db:gen && pnpm gql:gen && pnpm lint:fix",
     "dev": "astro dev",
-    "gql:gen": "dotenv -e .env.development -- graphql-codegen",
-    "gql:watch": "dotenv -e .env.development -- graphql-codegen --watch",
+    "gql:gen": "dotenv -e .env.development -- graphql-codegen --config config/codegen.ts",
+    "gql:watch": "dotenv -e .env.development -- graphql-codegen --config config/codegen.ts --watch",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "db:gen": "npx prisma generate",
-    "db:push": "dotenv -e .env.development -- npx prisma db push",
+    "db:gen": "npx prisma generate --schema config/schema.prisma",
+    "db:push": "dotenv -e .env.development -- npx prisma db push --schema config/schema.prisma",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx,astro}\"",
     "lint:fix": "eslint \"**/*.{js,jsx,ts,tsx,astro}\" --fix"
   },

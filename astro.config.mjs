@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     pandacss(),
     solidjs(),
-    auth()
+    auth({ configFile: 'config/auth.config.ts' })
   ],
   adapter: vercel(),
   output: 'server'

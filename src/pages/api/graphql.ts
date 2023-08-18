@@ -1,7 +1,6 @@
 import type { APIRoute } from 'astro'
+import { schema } from 'config/pothos.schema'
 import { createYoga } from 'graphql-yoga'
-
-import { schema } from '@/config/pothos/schema'
 
 const { handleRequest } = createYoga({
   schema,

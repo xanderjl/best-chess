@@ -13,6 +13,9 @@
       "@/*": [
         "src/*"
       ],
+      "config": [
+        "config/*"
+      ],
       "styled-system/*": [
         "styled-system/*"
       ]

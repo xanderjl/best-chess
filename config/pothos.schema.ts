@@ -36,6 +36,7 @@ builder.prismaObject('User', {
       nullable: true
     }),
     email: t.exposeString('email'),
+    image: t.exposeString('image', { nullable: true }),
     wins: t.exposeInt('wins')
   })
 })
@@ -85,6 +86,24 @@ builder.queryType({
         prisma.game.findMany({
           ...query,
           where: { OR: [{ player1Id: userId }, { player2Id: userId }] }
+        })
+    })
+  })
+})
+
+builder.mutationType({
+  fields: t => ({
+    createUser: t.prismaField({
+      type: 'User',
+      args: {
+        name: t.arg.string({ required: true }),
+        email: t.arg.string({ required: true }),
+        image: t.arg.string()
+      },
+      resolve: async (query, _, { name, email }) =>
+        prisma.user.create({
+          ...query,
+          data: { name, email }
         })
     })
   })

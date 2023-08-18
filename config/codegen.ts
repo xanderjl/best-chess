@@ -1,7 +1,7 @@
 import type { CodegenConfig } from '@graphql-codegen/cli'
 import { printSchema } from 'graphql'
 
-import { schema } from './src/config/pothos/schema'
+import { schema } from './pothos.schema'
 
 const config: CodegenConfig = {
   overwrite: true,

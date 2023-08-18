@@ -1,8 +1,9 @@
 ---
-import { LoginButton } from '@/components/LoginButton'
-import Layout from '@/layouts/Layout.astro'
 import { getSession } from 'auth-astro/server'
 import { container } from 'styled-system/patterns'
+
+import { LoginButton } from '@/components/LoginButton'
+import Layout from '@/layouts/Layout.astro'
 
 const session = await getSession(Astro.request)
 
